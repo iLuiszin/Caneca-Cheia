@@ -5,7 +5,7 @@ import Close from './icons/close.svg'
 import Cart from './icons/cart.svg'
 import { Link } from 'react-router-dom'
 import api from '../../api/api'
-import Caneca from '../header/icons/caneca.png'
+import Caneca from '../header/assets/caneca.png'
 
 function Header() {
   const state = useContext(GlobalState)
