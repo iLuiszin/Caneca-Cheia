@@ -15,11 +15,11 @@ code {
 }
 
 .App {
-  max-width: 1200px;
+  max-width: 1230px;
   min-height: 100vh;
   margin: 0 auto;
   padding: 0 20px;
-  box-shadow: 0 0 25px rgb(189, 189, 189);
+  box-shadow: 0 0 35px #eee;
 }
 
 a {
@@ -31,18 +31,42 @@ ul li {
 }
 
 button {
-  outline: none;
   border: none;
+  outline: none;
   background: transparent;
   cursor: pointer;
 }
 
-/*********-responsive -------*/
-@media (max-width : 820px) {
+/* ---------------- Header ------------ */
+@import url("./components/header/Header.css");
+
+/* ------------- Products -------------- */
+
+@import url("./components/mainPages/products/Products.css");
+
+/* ---------------- Detail Product --------------- */
+@import url("./components/mainPages/detailProducts/DetailProduct.css");
+
+/* ------------- Login/Register ----------------- */
+@import url("./components/mainPages/auth/Login.css");
+
+/* ------------ Cart ------------------- */
+@import url("./components/mainPages/cart/Cart.css");
+
+/* --------------- History ------------------- */
+@import url("./components/mainPages/history/OrderHistory.css");
+
+/* ------------------ Categories ------------------ */
+@import url("./components/mainPages/categories/Categories.css");
+
+/* ------------------- Create Product -------------- */
+@import url("./components/mainPages/createProduct/CreateProduct.css");
+
+/* ----------------- Responsive ------------------ */
+@media (max-width: 820px) {
   header .logo {
     min-width: 115px;
     flex: none;
-
   }
 
   header ul {
@@ -50,37 +74,21 @@ button {
   }
 }
 
-@media (max-width:720px) {
+@media (max-width: 720px) {
   header ul {
     position: fixed;
     top: 0;
-    left: 0;
+    left: -100%;
     width: 100%;
     height: 100vh;
-    background: #ccc;
+    background: white;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    gap: 50px;
+    justify-content: space-around;
     align-items: center;
-    opacity: 0.9;
+    opacity: 0.98;
     z-index: 99;
     transition: 0.5s ease-in;
-  }
-
-  header .menu img {
-    margin-right: 10px;
-    margin-top: 5px;
-  }
-
-  header ul li a {
-    color: #000;
-    background: white;
-    padding: 10px 20px;
-    border-radius: 10px;
-    font-size: 20px;
-    opacity: 100%;
-    font-weight: 700;
   }
 
   header .menu {
@@ -99,16 +107,15 @@ button {
   }
 }
 
-@media (max-width:570px) {
+@media (max-width: 570px) {
   .filter_menu .row span {
     display: none;
   }
-
 }
 
-@media (max-width:500px) {
+@media (max-width: 500px) {
   .App {
-    padding: 0px 10px;
+    padding: 0 10px;
   }
 
   .detail {
@@ -117,7 +124,7 @@ button {
   }
 
   .filter_menu input {
-    margin: 10px;
+    margin: 0;
   }
 
   .filter_menu .sort {

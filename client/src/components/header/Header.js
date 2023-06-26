@@ -1,52 +1,53 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import { GlobalState } from '../../GlobalState'
-import { useContext, useState } from 'react'
-import { Link } from 'react-router-dom'
-import api from '../../api/api'
-import Menu from './icons/bar.svg'
-import Cart from './icons/cart.svg'
+import Menu from './icons/menu.svg'
 import Close from './icons/close.svg'
-import './Header.css'
+import Cart from './icons/cart.svg'
+import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 function Header() {
   const state = useContext(GlobalState)
-  const [isLogged, setIsLogged] = state.userAPI.isLogged
-  const [isAdmin, setIsAdmin] = state.userAPI.isAdmin
+  const [isLogged] = state.userAPI.isLogged
+  const [isAdmin] = state.userAPI.isAdmin
   const [cart] = state.userAPI.cart
+  const [menu, setMenu] = useState(false)
+
+  const logoutUser = async () => {
+    await axios.get('/user/logout')
+
+    localStorage.removeItem('firstLogin')
+
+    window.location.href = '/'
+  }
 
   const adminRouter = () => {
     return (
       <>
         <li>
-          <Link to='/create_product'>Criar Produto</Link>
+          <Link to='/create_product'>Create Product</Link>
         </li>
         <li>
-          <Link to='/category'>Categorias</Link>
+          <Link to='/category'>Categories</Link>
         </li>
       </>
     )
-  }
-
-  const loggedOut = async () => {
-    await api.get('/user/logout')
-    localStorage.clear()
-    setIsAdmin(false)
-    setIsLogged(false)
   }
 
   const loggedRouter = () => {
     return (
       <>
         <li>
-          <Link to='/' onClick={loggedOut}>
-            Sair
+          <Link to='/history'>History</Link>
+        </li>
+        <li>
+          <Link to='/' onClick={logoutUser}>
+            Logout
           </Link>
         </li>
       </>
     )
   }
-
-  const [menu, setMenu] = useState(false)
 
   const styleMenu = {
     left: menu ? 0 : '-100%',
@@ -57,6 +58,7 @@ function Header() {
       <div className='menu' onClick={() => setMenu(!menu)}>
         <img src={Menu} alt='' width='30' />
       </div>
+
       <div className='logo'>
         <h1>
           <Link to='/'>{isAdmin ? 'Admin' : 'Caneca Cheia'}</Link>
@@ -65,14 +67,16 @@ function Header() {
 
       <ul style={styleMenu}>
         <li>
-          <Link to='/'>{isAdmin ? 'Produtos' : 'Compras'}</Link>
+          <Link to='/'>{isAdmin ? 'Products' : 'Shop'}</Link>
         </li>
+
         {isAdmin && adminRouter()}
+
         {isLogged ? (
           loggedRouter()
         ) : (
           <li>
-            <Link to='/login'>Login & Registro</Link>
+            <Link to='/login'>Login ✥ Registro</Link>
           </li>
         )}
 
@@ -87,7 +91,7 @@ function Header() {
         <div className='cart-icon'>
           <span>{cart.length}</span>
           <Link to='/cart'>
-            <img src={Cart} alt='' width='40' />
+            <img src={Cart} alt='' width='30' />
           </Link>
         </div>
       )}

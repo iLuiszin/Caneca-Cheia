@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
-import { GlobalState } from '../../../../GlobalState'
-import ProductItem from '../../utils/product_item/ProductItem'
+import { GlobalState } from '../../../GlobalState'
+import ProductItem from '../utils/product_item/ProductItem'
 import './DetailProduct.css'
 
 function DetailProduct() {

@@ -6,8 +6,7 @@ header {
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
-    border-bottom: 1px solid hotpink;
-    background: rgb(255, 255, 255);
+    border-bottom: 1px solid #ddd;
 }
 
 header .logo {
@@ -16,13 +15,13 @@ header .logo {
 
 header a {
     text-transform: uppercase;
-    color: rgb(66, 66, 66);
+    color: #555;
 }
 
 header ul li {
     display: inline-block;
     opacity: 0.7;
-    padding: 0 20px
+    padding: 0 20px;
 }
 
 header ul li:hover {
@@ -39,12 +38,12 @@ header ul li:hover {
 }
 
 .cart-icon span {
-    background: salmon;
-    border-radius: 10px;
-    color: wheat;
+    background: crimson;
+    border-radius: 20px;
+    color: white;
     position: absolute;
     top: -10px;
-    right: 25px;
-    padding: 5px 5px;
+    right: -10px;
+    padding: 5px 7px;
     font-size: 10px;
 }

@@ -7,7 +7,7 @@ import Login from './auth/Login'
 import Register from './auth/Register'
 import Cart from './cart/Cart'
 import NotFound from './utils/not_found/NotFound'
-import DetailProduct from './products/detailProducts/DetailProduct'
+import DetailProduct from './detailProducts/DetailProduct'
 
 import { GlobalState } from '../../GlobalState'
 import Categories from './categories/Categories'

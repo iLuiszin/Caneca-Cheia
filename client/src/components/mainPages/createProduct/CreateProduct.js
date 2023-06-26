@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import api from '../../../api/api'
 import { GlobalState } from '../../../GlobalState'
 import Loading from '../utils/Loading/Loading'
-import styles from './CreateProduct.module.css'
+import './CreateProduct.css'
 
 const initialState = {
   product_id: '',
@@ -141,31 +141,23 @@ function CreateProduct() {
   }
 
   return (
-    <div className={styles.create_product}>
-      <div className={styles.upload}>
-        <input
-          type='file'
-          name='file'
-          id={styles.file_up}
-          onChange={handleUpload}
-        />
+    <div className='create_product'>
+      <div className='upload'>
+        <input type='file' name='file' id='file_up' onChange={handleUpload} />
         {loading ? (
-          <div id={styles.file_img}>
+          <div id='file_img'>
             <Loading />{' '}
           </div>
         ) : (
-          <div id={styles.file_img} style={styleUpload}>
+          <div id='file_img' style={styleUpload}>
             <img src={images ? images.url : ''} alt='' />
             <span onClick={handleDestroy}>x</span>
           </div>
         )}
       </div>
       <form onSubmit={handleSubmit}>
-        <div className={styles.row}>
-          <label id={styles.label} htmlFor='product_id'>
-            ID do produto
-          </label>
-
+        <div className='row'>
+          <label htmlFor='product_id'>ID do produto</label>
           <input
             type='text'
             name='product_id'
@@ -176,7 +168,7 @@ function CreateProduct() {
             disabled={onEdit}
           />
         </div>
-        <div className={styles.row}>
+        <div className='row'>
           <label htmlFor='title'>Título</label>
           <input
             type='text'
@@ -186,7 +178,7 @@ function CreateProduct() {
             onChange={handleChangeInput}
           />
         </div>
-        <div className={styles.row}>
+        <div className='row'>
           <label htmlFor='price'>Preço</label>
           <input
             type='number'
@@ -196,7 +188,7 @@ function CreateProduct() {
             onChange={handleChangeInput}
           />
         </div>
-        <div className={styles.row}>
+        <div className='row'>
           <label htmlFor='description'>Descrição</label>
           <textarea
             rows='7'
@@ -207,7 +199,7 @@ function CreateProduct() {
             onChange={handleChangeInput}
           />
         </div>
-        <div className={styles.row}>
+        <div className='row'>
           <label htmlFor='content'>Conteúdo</label>
           <input
             type='text'
@@ -217,7 +209,7 @@ function CreateProduct() {
             onChange={handleChangeInput}
           />
         </div>
-        <div className={styles.row}>
+        <div className='row'>
           <label htmlFor='category'>Categoria</label>
           <br />
           <select
@@ -236,7 +228,7 @@ function CreateProduct() {
             ))}
           </select>
         </div>
-        <div className={styles.row}>
+        <div className='row'>
           <label htmlFor='alcoholic'>O produto é alcólico?</label>
           <br />
           <select
