@@ -41,7 +41,7 @@ function UserAPI(token) {
 
     if (check) {
       setCart([...cart, { ...product, quantity: 1 }])
-      await axios.patch(
+      await api.patch(
         '/user/add_cart',
         { cart: [...cart, { ...product, quantity: 1 }] },
         {
