@@ -32,6 +32,16 @@ function Cart() {
     )
   }
 
+  const clearCart = async () => {
+    await api.patch(
+      '/user/clear_cart',
+      { cart },
+      {
+        headers: { Authorization: token },
+      }
+    )
+  }
+
   const increment = (id) => {
     cart.forEach((item) => {
       if (item._id === id) {
@@ -75,6 +85,7 @@ function Cart() {
 
     setCart([])
     addToCart([])
+    clearCart()
     alert('Seu pedido foi realizado com sucesso!')
   }
 

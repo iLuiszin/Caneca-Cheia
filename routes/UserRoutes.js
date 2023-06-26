@@ -8,6 +8,7 @@ router.get('/logout', UserController.logout)
 router.get('/refresh_token', UserController.refreshToken)
 router.get('/info', auth, UserController.getUser)
 router.patch('/add_cart', auth, UserController.addCart)
+router.patch('/clear_cart', auth, UserController.clearCart)
 router.get('/history', auth, UserController.history)
 
 module.exports = router

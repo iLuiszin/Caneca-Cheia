@@ -149,11 +149,31 @@ const UserController = {
           cart: req.body.cart,
         }
       )
+
       return res.status(200).json({ msg: 'Adicionado ao carrinho!' })
     } catch (error) {
       res.status(500).json({ msg: error.message })
     }
   },
+
+  clearCart: async (req, res) => {
+    try {
+      const user = await User.findById(req.user.id)
+      if (!user) return res.status(400).json({ msg: 'Usuário não encontrado!' })
+
+      await User.findOneAndUpdate(
+        { _id: req.user.id },
+        {
+          cart: [],
+        }
+      )
+
+      return res.status(200).json({ msg: 'Carrinho limpo!' })
+    } catch (error) {
+      res.status(500).json({ msg: error.message })
+    }
+  },
+
   history: async (req, res) => {
     try {
       const history = await Payment.find({ user_id: req.user.id })
