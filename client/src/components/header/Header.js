@@ -5,6 +5,7 @@ import Close from './icons/close.svg'
 import Cart from './icons/cart.svg'
 import { Link } from 'react-router-dom'
 import api from '../../api/api'
+import Caneca from '../header/icons/caneca.png'
 
 function Header() {
   const state = useContext(GlobalState)
@@ -61,7 +62,18 @@ function Header() {
 
       <div className='logo'>
         <h1>
-          <Link to='/'>{isAdmin ? 'Admin' : 'Caneca Cheia'}</Link>
+          <Link to='/'>
+            {isAdmin ? (
+              'Admin'
+            ) : (
+              <>
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                  <img src={Caneca} alt='' width='100' />
+                  Caneca Cheia
+                </div>
+              </>
+            )}
+          </Link>
         </h1>
       </div>
 
