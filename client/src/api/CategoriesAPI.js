@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import api from './api'
-import { get } from 'mongoose'
 
 function CategoriesAPI(token) {
   const [categories, setCategories] = useState([])
