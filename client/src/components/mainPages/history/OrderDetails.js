@@ -24,10 +24,10 @@ function OrderDetails() {
       <table>
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Address</th>
-            <th>Postal Code</th>
-            <th>Country Code</th>
+            <th>Nome</th>
+            <th>Endereço</th>
+            <th>Cep</th>
+            <th>Código do país</th>
           </tr>
         </thead>
         <tbody>
@@ -46,9 +46,9 @@ function OrderDetails() {
         <thead>
           <tr>
             <th></th>
-            <th>Products</th>
-            <th>Quantity</th>
-            <th>Price</th>
+            <th>Produtos</th>
+            <th>Quantidade</th>
+            <th>Preço</th>
           </tr>
         </thead>
         <tbody>
