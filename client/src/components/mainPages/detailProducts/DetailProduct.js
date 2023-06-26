@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { GlobalState } from '../../../GlobalState'
-import ProductItem from '../utils/product_item/ProductItem'
+import ProductItem from '../utils/productItem/ProductItem'
 import './DetailProduct.css'
 
 function DetailProduct() {
@@ -30,24 +30,11 @@ function DetailProduct() {
             <h2>{detailProduct.title}</h2>
             <h6>{detailProduct.product_id}</h6>
           </div>
-          <h5>
+          <span>
             R$ {detailProduct.price.toFixed(2).toString().replace('.', ',')}
-          </h5>
-          <p>
-            <h4 style={{ textDecoration: 'underline', color: 'whitesmoke' }}>
-              Conteúdo:
-            </h4>
-            {detailProduct.content}
-          </p>
-          <p>
-            <h4 style={{ textDecoration: 'underline', color: 'whitesmoke' }}>
-              Descrição:
-            </h4>
-            {detailProduct.description}
-          </p>
-          <p>
-            <h4>Vendidos:</h4> {detailProduct.sold}{' '}
-          </p>
+          </span>
+          <p>{detailProduct.description}</p>
+          <p>{detailProduct.content}</p>
           {!isOlder && detailProduct.alcoholic ? (
             <Link
               className='cart'

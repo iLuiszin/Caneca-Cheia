@@ -1,4 +1,4 @@
-import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
+import { BrowserRouter as Router } from 'react-router-dom'
 import { DataProvider } from './GlobalState'
 import Header from './components/header/Header'
 import MainPages from './components/mainPages/Pages'

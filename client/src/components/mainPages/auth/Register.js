@@ -28,8 +28,8 @@ function Register() {
 
   return (
     <div className='login-page'>
-      <h2>Registrar</h2>
       <form onSubmit={registerSubmit}>
+        <h2>Registrar</h2>
         <input
           type='text'
           name='name'
@@ -59,6 +59,7 @@ function Register() {
           type='password'
           name='password'
           required
+          autoComplete='on'
           placeholder='Digite a sua senha'
           value={user.password}
           onChange={onChangeInput}
@@ -66,9 +67,7 @@ function Register() {
 
         <div className='row'>
           <button type='submit'>Registrar</button>
-          <p>
-            Já possui uma conta? <Link to='/login'>Clique aqui.</Link>
-          </p>
+          <Link to='/login'>Fazer Login</Link>
         </div>
       </form>
     </div>

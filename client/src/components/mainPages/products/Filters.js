@@ -1,6 +1,5 @@
 import React, { useContext } from 'react'
-import './Filters.css'
-import { GlobalState } from '../../../../../GlobalState'
+import { GlobalState } from '../../../GlobalState'
 
 function Filters() {
   const state = useContext(GlobalState)
@@ -36,7 +35,7 @@ function Filters() {
         placeholder='Insira o nome para pesquisar'
         onChange={(e) => setSearch(e.target.value.toLowerCase())}
       />
-      <div className='row'>
+      <div className='row sort'>
         <span>Filtros:</span>
         <select value={sort} onChange={(e) => setSort(e.target.value)}>
           <option value=''>Mais recente</option>

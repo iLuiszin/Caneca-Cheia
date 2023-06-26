@@ -1,11 +1,11 @@
 import React, { useContext, useState } from 'react'
 import { GlobalState } from '../../../GlobalState'
-import ProductItem from '../utils/product_item/ProductItem'
-import LoadMore from '../utils/product_item/Filters/LoadMore'
+import ProductItem from '../utils/productItem/ProductItem'
+import LoadMore from './LoadMore'
 import './Products.css'
 import Loading from '../utils/Loading/Loading'
 import api from '../../../api/api'
-import Filters from '../utils/product_item/Filters/Filters'
+import Filters from './Filters'
 
 function Products() {
   const state = useContext(GlobalState)
@@ -66,41 +66,10 @@ function Products() {
     <>
       <Filters />
       {isAdmin && (
-        <div
-          className='delete-all'
-          style={{ textAlign: 'right', margin: '20px' }}
-        >
-          <span
-            style={{
-              textTransform: 'uppercase',
-              color: 'blue',
-              letterSpacing: '1.3px',
-            }}
-          >
-            Selecione todos
-          </span>
-          <input
-            style={{
-              height: '25px',
-              width: '25px',
-              transform: 'translate(5px, 13px)',
-              margin: '0 15px',
-            }}
-            type='checkbox'
-            checked={isChecked}
-            onChange={checkAll}
-          />
-          <button
-            onClick={deleteAll}
-            style={{
-              border: '1px solid crimson',
-              padding: '0px 25px',
-              color: 'crimson',
-              textTransform: 'uppercase',
-            }}
-          >
-            Deletar todos
-          </button>
+        <div className='delete-all'>
+          <span>Selecione todos</span>
+          <input type='checkbox' checked={isChecked} onChange={checkAll} />
+          <button onClick={deleteAll}>Deletar todos</button>
         </div>
       )}
       <div className='products'>

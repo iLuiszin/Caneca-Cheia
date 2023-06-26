@@ -19,12 +19,14 @@ const UserRoutes = require('./routes/UserRoutes')
 const CategoryRoutes = require('./routes/CategoryRoutes')
 const ProductRoutes = require('./routes/ProductRoutes')
 const UploadRoutes = require('./routes/UploadRoutes')
+const PaymentRoutes = require('./routes/PaymentRoutes')
 
 // Routes
 app.use('/user', UserRoutes)
 app.use('/api', ProductRoutes)
 app.use('/api', CategoryRoutes)
 app.use('/api', UploadRoutes)
+app.use('/api', PaymentRoutes)
 
 app.get('/', (req, res) => {
   res.json({ msg: 'Welcome to the API!' })

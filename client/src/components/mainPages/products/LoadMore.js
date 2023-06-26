@@ -1,6 +1,5 @@
 import React, { useContext } from 'react'
-import './Filters.css'
-import { GlobalState } from '../../../../../GlobalState'
+import { GlobalState } from '../../../GlobalState'
 
 function LoadMore() {
   const state = useContext(GlobalState)
@@ -12,7 +11,7 @@ function LoadMore() {
       {result < page * 9 ? (
         ''
       ) : (
-        <button onClick={() => setPage(page + 1)}>Load more</button>
+        <button onClick={() => setPage(page + 1)}>Carregar mais</button>
       )}
     </div>
   )

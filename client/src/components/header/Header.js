@@ -25,10 +25,10 @@ function Header() {
     return (
       <>
         <li>
-          <Link to='/create_product'>Create Product</Link>
+          <Link to='/create_product'>Ciar Produto</Link>
         </li>
         <li>
-          <Link to='/category'>Categories</Link>
+          <Link to='/category'>Categorias</Link>
         </li>
       </>
     )
@@ -38,11 +38,11 @@ function Header() {
     return (
       <>
         <li>
-          <Link to='/history'>History</Link>
+          <Link to='/history'>Histórico de Compras</Link>
         </li>
         <li>
           <Link to='/' onClick={logoutUser}>
-            Logout
+            Sair
           </Link>
         </li>
       </>
@@ -65,9 +65,9 @@ function Header() {
         </h1>
       </div>
 
-      <ul style={styleMenu}>
+      <ul style={styleMenu} onClick={() => setMenu(!menu)}>
         <li>
-          <Link to='/'>{isAdmin ? 'Products' : 'Shop'}</Link>
+          <Link to='/'>Produtos</Link>
         </li>
 
         {isAdmin && adminRouter()}
@@ -80,7 +80,7 @@ function Header() {
           </li>
         )}
 
-        <li onClick={() => setMenu(!menu)}>
+        <li>
           <img src={Close} alt='' width='30' className='menu' />
         </li>
       </ul>

@@ -8,6 +8,8 @@ import Register from './auth/Register'
 import Cart from './cart/Cart'
 import NotFound from './utils/not_found/NotFound'
 import DetailProduct from './detailProducts/DetailProduct'
+import OrderHistory from './history/OrderHistory'
+import OrderDetails from './history/OrderDetails'
 
 import { GlobalState } from '../../GlobalState'
 import Categories from './categories/Categories'
@@ -19,6 +21,7 @@ function Pages() {
   return (
     <Routes>
       <Route path='/' element={<Products />} />
+      <Route path='/detail/:id' element={<DetailProduct />} />
       <Route path='/login' element={isLogged ? <Products /> : <Login />} />
       <Route
         path='/register'
@@ -36,8 +39,17 @@ function Pages() {
         path='/edit_product/:id'
         element={isLogged ? <CreateProduct /> : <NotFound />}
       />
+      <Route
+        path='/history'
+        element={isLogged ? <OrderHistory /> : <NotFound />}
+      />
+      <Route
+        path='/history/:id'
+        exact
+        component={isLogged ? <OrderDetails /> : <NotFound />}
+      />
       <Route path='/cart' element={<Cart />} />
-      <Route path='/detail/:id' element={<DetailProduct />} />
+
       <Route path='*' element={<NotFound />} />
     </Routes>
   )

@@ -1,7 +1,7 @@
 .cart {
     position: relative;
     border: 1px solid #ccc;
-    transform: scaleY(0.95)
+    transform: scaleY(0.98);
 }
 
 .amount span {
@@ -9,20 +9,16 @@
     padding: 0 20px;
 }
 
-
 .amount button {
     width: 40px;
     height: 40px;
-    border: 2px solid #777;
-    font-weight: 800;
-    font-size: 20px;
-    color: white
+    border: 1px solid #777;
 }
 
 .delete {
     position: absolute;
     top: 0;
-    right: 15px;
+    right: 5px;
     color: crimson;
     font-weight: 900;
     cursor: pointer;
