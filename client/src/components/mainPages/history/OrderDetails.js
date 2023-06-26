@@ -24,19 +24,13 @@ function OrderDetails() {
       <table>
         <thead>
           <tr>
-            <th>Nome</th>
-            <th>Endereço</th>
-            <th>Cep</th>
+            <th>Nome do Comprador</th>
             <th>Código do país</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>{orderDetails.address.recipient_name}</td>
-            <td>
-              {orderDetails.address.line1 + ' - ' + orderDetails.address.city}
-            </td>
-            <td>{orderDetails.address.postal_code}</td>
+            <td>{orderDetails.name}</td>
             <td>{orderDetails.address.country_code}</td>
           </tr>
         </tbody>
@@ -59,7 +53,13 @@ function OrderDetails() {
               </td>
               <td>{item.title}</td>
               <td>{item.quantity}</td>
-              <td>$ {item.price * item.quantity}</td>
+              <td>
+                r${' '}
+                {(item.price * item.quantity)
+                  .toFixed(2)
+                  .toString()
+                  .replace('.', ',')}
+              </td>
             </tr>
           ))}
         </tbody>

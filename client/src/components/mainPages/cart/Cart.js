@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from 'react'
 import api from '../../../api/api'
 import { GlobalState } from '../../../GlobalState'
 import './Cart.css'
-import PaypalButton from './PaypalButton'
+import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js'
 
 function Cart() {
   const state = useContext(GlobalState)
@@ -27,7 +27,7 @@ function Cart() {
       '/user/add_cart',
       { cart },
       {
-        headers: { Authorization: localStorage.getItem('token') },
+        headers: { Authorization: token },
       }
     )
   }
@@ -64,9 +64,7 @@ function Cart() {
     }
   }
 
-  const tranSuccess = async (payment) => {
-    const { paymentID, address } = payment
-
+  const tranSuccess = async (paymentID, address) => {
     await api.post(
       '/api/payment',
       { cart, paymentID, address },
@@ -80,6 +78,24 @@ function Cart() {
     alert('Seu pedido foi realizado com sucesso!')
   }
 
+  const createOrder = (data, actions) => {
+    return actions.order.create({
+      purchase_units: [
+        {
+          amount: {
+            value: total.replace(',', '.'),
+          },
+        },
+      ],
+    })
+  }
+
+  const paypalOptions = {
+    'client-id':
+      'AYEcs4_cavMm30yCbA6BX8k5L8brp06pv-zEh6Fawaant5qr2hkap91WIZjkq_rKwmS-nGrBt-yMWjy1',
+    currency: 'BRL', //dynamic amount from state
+  }
+
   if (cart.length === 0)
     return (
       <h2 style={{ textAlign: 'center', fontSize: '2rem', marginTop: '2rem' }}>
@@ -90,7 +106,7 @@ function Cart() {
   return (
     <div>
       {cart.map((product) => (
-        <div className='detail cart'>
+        <div key={product._id} className='detail cart'>
           <img src={product.images.url} alt={product.title} />
           <div className='box-detail'>
             <h2>{product.title}</h2>
@@ -118,7 +134,18 @@ function Cart() {
       ))}
       <div className='total'>
         <h4>Total: R$ {total}</h4>
-        <PaypalButton total={total} tranSuccess={tranSuccess} />
+        <PayPalScriptProvider options={paypalOptions}>
+          <PayPalButtons
+            style={{ layout: 'horizontal' }}
+            createOrder={createOrder}
+            onApprove={(data, actions) => {
+              return actions.order.capture().then((details) => {
+                console.log(details)
+                tranSuccess(details.id, details.payer.address)
+              })
+            }}
+          />
+        </PayPalScriptProvider>
       </div>
     </div>
   )

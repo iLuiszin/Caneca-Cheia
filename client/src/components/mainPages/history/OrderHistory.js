@@ -39,7 +39,7 @@ function OrderHistory() {
           <tr>
             <th>Id Pagamento</th>
             <th>Data da compra</th>
-            <th></th>
+            <th>Ver pedido</th>
           </tr>
         </thead>
         <tbody>

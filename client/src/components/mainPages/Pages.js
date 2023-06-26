@@ -40,14 +40,14 @@ function Pages() {
         element={isLogged ? <CreateProduct /> : <NotFound />}
       />
       <Route
+        path='/history/:id'
+        element={isLogged ? <OrderDetails /> : <NotFound />}
+      />
+      <Route
         path='/history'
         element={isLogged ? <OrderHistory /> : <NotFound />}
       />
-      <Route
-        path='/history/:id'
-        exact
-        component={isLogged ? <OrderDetails /> : <NotFound />}
-      />
+
       <Route path='/cart' element={<Cart />} />
 
       <Route path='*' element={<NotFound />} />
