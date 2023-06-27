@@ -1,30 +1,7 @@
-import React, { useState } from 'react'
-import './ProductItem.css'
-import Loading from '../Loading/Loading'
+import React from 'react'
 import BtnRender from './BtnRender'
 
-function ProductItem({
-  product,
-  isAdmin,
-  deleteProduct,
-  products,
-  setProducts,
-}) {
-  const [loading] = useState(false)
-
-  const handleCheck = (id) => {
-    products.forEach((product) => {
-      if (product._id === id) product.checked = !product.checked
-    })
-    setProducts([...products])
-  }
-
-  if (loading)
-    return (
-      <div className='product_card'>
-        <Loading />
-      </div>
-    )
+function ProductItem({ product, isAdmin, deleteProduct, handleCheck }) {
   return (
     <div className='product_card'>
       {isAdmin && (
@@ -35,12 +12,9 @@ function ProductItem({
         />
       )}
       <img src={product.images.url} alt='' />
-
       <div className='product_box'>
         <h2 title={product.title}>{product.title}</h2>
-
         <span>R$ {product.price.toFixed(2).toString().replace('.', ',')}</span>
-
         <p>{product.description}</p>
       </div>
 

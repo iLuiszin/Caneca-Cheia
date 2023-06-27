@@ -12,9 +12,16 @@ function Products() {
   const [products, setProducts] = state.productsAPI.products
   const [isAdmin] = state.userAPI.isAdmin
   const [callback, setCallback] = state.productsAPI.callback
-  const [isChecked, setChecked] = useState(false)
-  const [setLoading] = useState(false)
+  const [isChecked, setIsChecked] = useState(false)
+  const [loading, setLoading] = useState(false)
   const [token] = state.token
+
+  const handleCheck = (id) => {
+    products.forEach((product) => {
+      if (product._id === id) product.checked = !product.checked
+    })
+    setProducts([...products])
+  }
 
   const deleteProduct = async (id, public_id) => {
     try {
@@ -32,8 +39,8 @@ function Products() {
 
       await destroyImg
       await deleteProduct
-      setLoading(false)
       setCallback(!callback)
+      setLoading(false)
     } catch (error) {
       alert(error.response.data.msg)
     }
@@ -44,7 +51,7 @@ function Products() {
       product.checked = !isChecked
     })
     setProducts([...products])
-    setChecked(!isChecked)
+    setIsChecked(!isChecked)
   }
 
   const deleteAll = async () => {
@@ -62,6 +69,12 @@ function Products() {
     }
   }
 
+  if (loading)
+    return (
+      <div>
+        <Loading />
+      </div>
+    )
   return (
     <>
       <Filters />
@@ -79,11 +92,8 @@ function Products() {
               key={product._id}
               product={product}
               isAdmin={isAdmin}
-              callback={callback}
-              setCallback={setCallback}
-              setProducts={setProducts}
-              products={products}
               deleteProduct={deleteProduct}
+              handleCheck={handleCheck}
             />
           )
         })}
