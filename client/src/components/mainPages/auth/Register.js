@@ -34,7 +34,7 @@ function Register() {
           type='text'
           name='name'
           required
-          placeholder='Digite o seu nome'
+          placeholder='Insira o seu nome'
           value={user.name}
           onChange={onChangeInput}
         />
@@ -42,7 +42,7 @@ function Register() {
           type='text'
           name='birthday'
           required
-          placeholder='Digite a sua idade'
+          placeholder='Insira a sua data de nascimento'
           value={user.birthday}
           onChange={onChangeInput}
           onFocus={(e) => (e.target.type = 'date')}
@@ -52,7 +52,7 @@ function Register() {
           type='email'
           name='email'
           required
-          placeholder='Digite o seu email'
+          placeholder='Insira o seu email'
           value={user.email}
           onChange={onChangeInput}
         />
@@ -62,7 +62,7 @@ function Register() {
           name='password'
           required
           autoComplete='on'
-          placeholder='Digite a sua senha'
+          placeholder='Insira a sua senha'
           value={user.password}
           onChange={onChangeInput}
         />
