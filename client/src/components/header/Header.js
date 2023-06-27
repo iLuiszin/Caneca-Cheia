@@ -38,9 +38,13 @@ function Header() {
   const loggedRouter = () => {
     return (
       <>
-        <li>
-          <Link to='/history'>Histórico de Compras</Link>
-        </li>
+        {isAdmin ? (
+          ''
+        ) : (
+          <li>
+            <Link to='/history'>Histórico de Compras</Link>
+          </li>
+        )}
         <li>
           <Link to='/' onClick={logoutUser}>
             Sair
@@ -88,7 +92,7 @@ function Header() {
           loggedRouter()
         ) : (
           <li>
-            <Link to='/login'>Login ✥ Registro</Link>
+            <Link to='/login'>Login ✥ Cadastro</Link>
           </li>
         )}
 
