@@ -39,12 +39,14 @@ function Register() {
           onChange={onChangeInput}
         />
         <input
-          type='date'
+          type='text'
           name='birthday'
           required
           placeholder='Digite a sua idade'
           value={user.birthday}
           onChange={onChangeInput}
+          onFocus={(e) => (e.target.type = 'date')}
+          onBlur={(e) => (e.target.type = 'text')}
         />
         <input
           type='email'
