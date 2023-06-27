@@ -34,7 +34,7 @@ function DetailProduct() {
             R$ {detailProduct.price.toFixed(2).toString().replace('.', ',')}
           </span>
           <p>{detailProduct.description}</p>
-          <p>{detailProduct.content} ml</p>
+          <p>{detailProduct.content}ml</p>
           {!isOlder && detailProduct.alcoholic ? (
             <Link
               className='cart'

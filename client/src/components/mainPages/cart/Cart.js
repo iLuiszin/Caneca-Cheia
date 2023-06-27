@@ -129,7 +129,7 @@ function Cart() {
                 .replace('.', ',')}
             </h3>
             <p>{product.description}</p>
-            <p>{product.content} ml</p>
+            <p>{product.content}ml</p>
 
             <div className='amount'>
               <button onClick={() => decrement(product._id)}> - </button>
