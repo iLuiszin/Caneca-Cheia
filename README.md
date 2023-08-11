@@ -47,18 +47,17 @@ You can also access the live version of the project at: [https://caneca-cheia.ve
 To run the project locally, follow these steps:
 
 1. Clone the repository: `git clone https://github.com/iLuiszin/Caneca-Cheia.git`
-2. Navigate to the project directory: `cd Caneca-Cheia`
-3. Install backend dependencies and start the backend server
+2. Install backend dependencies and start the backend server
     ```console
     npm install
     npm start
     ```
-4. Navigate to the client directory `cd client` to install and start the frontend:
+3. Navigate to the client directory `cd client` to install and start the frontend:
     ```console
     npm install
     npm start
     ```
-5. Access the application in your browser at: http://localhost:3000/
+4. Access the application in your browser at: http://localhost:3000/
 
 ## 👨‍💻 Authors
 
